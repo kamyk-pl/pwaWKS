@@ -4,7 +4,7 @@
     <title>Introduction to PWA</title>
     <meta charset="utf-8">
     <meta name="author" content=" Marek Matczak, Paweł Kamiński, Bartek Pietrowski, Tomek Szewców">
-    <meta name="description" content="RWC Traning">
+    <meta name="description" content="WKS 2017 Traning">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link href="reveal.js-3.3.0/css/reveal.css" rel="stylesheet">
     <link href="reveal.js-3.3.0/css/theme/black.css" rel="stylesheet">
@@ -27,24 +27,283 @@
   <div class="reveal">
     <div class="slides">       
       <section id="0-title" data-transition="slide">
-        <h2>Introduction to Progressive Web Apps</h2>
-        <body> </body>
+        <h2>Introduction to<br>Progressive Web Apps
+        </h2>
+        <body> 
+        </body>
       </section>
       <section id="1-agenda" data-transition="slide">
-        <h2>Agenda</h2>
+        <h2>Agenda
+        </h2>
         <body>
           <table> 
             <tr>
               <td class="fragment">
                 <ul>
                   <li>Introduction</li>
-                  <li>Caching </li>
+                  <li>Service Workers</li>
+                  <li>Caching options</li>
+                  <li>Storage</li>
                   <li>Push Notification</li>
                   <li>Tooling                        </li>
                 </ul>
               </td>
             </tr>
           </table>
+        </body>
+      </section>
+      <section id="2-service-workers-life-cycle" data-transition="slide">
+        <h2>Service Worker Life Cycle 
+        </h2>
+        <body><img src="../../img/sw-lifecycle.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Image from Google Web Fundamentals</a></p>
+        </body>
+      </section>
+      <section id="3-service-workers-registeration" data-transition="slide">
+        <h2>Service Worker Registeration
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+     .then(function(registration) {
+       // Registration was successful 
+       console.log('Registration successful with scope:', registration.scope);
+      }).catch(function(err) {
+       // Registration failed 
+      console.log('ServiceWorker registration failed:', err);
+    });
+}</code></pre>
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
+        </body>
+      </section>
+      <section id="4-service-workers-installation" data-transition="slide">
+        <h2>Service Worker Installation
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> self.addEventListener('install', function(event) {
+// Perform install steps
+});</code></pre>
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
+        </body>
+      </section>
+      <section id="5-service-workers-caching-static-files" data-transition="slide">
+        <h2> Caching Static Files
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('mysite-static-v3').then(function(cache) {
+      return cache.addAll([
+        '/css/whatever-v3.css',
+        '/css/imgs/sprites-v6.png',
+        '/css/fonts/whatever-v8.woff',
+        '/js/all-min-v4.js'
+        // etc
+      ]);
+    })
+  );
+});</code></pre>
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
+        </body>
+      </section>
+      <section id="6-service-workers-caching-static-files-schema" data-transition="slide">
+        <h2> Caching Static Files
+        </h2>
+        <body><img src="../../img/on-install-dep.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="7-service-workers-fetching-static-files" data-transition="slide">
+        <h2> Fetching Static Files
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.open('mysite-static-v3').then(function(cache) {
+        cache.match(event.request)
+           .then(function(response) {
+              return response || fetch(event.request)           
+          })
+       );                   
+    });
+});</code></pre>
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Code based on Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="8-cache-first" data-transition="slide">
+        <h2> Cache First
+        </h2>
+        <body><img src="../../img/cache-falling-back-to-network.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="9-service-workers-caching-on-network-response" data-transition="slide">
+        <h2> Caching On Network Response
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> self.addEventListener('fetch', function(event) {
+   event.respondWith(
+       caches.open('mysite-dynamic').then(function(cache) {
+          return cache.match(event.request).then(function (response) {
+             return response || fetch(event.request).then(function(response) {
+                  cache.put(event.request, response.clone());
+                  return response;
+                });
+            });
+        })
+    );
+});</code></pre>
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
+        </body>
+      </section>
+      <section id="10-network-first" data-transition="slide">
+        <h2> Network first
+        </h2>
+        <body><img src="../../img/network-falling-back-to-cache.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="11-cache-first" data-transition="slide">
+        <h2> Cache First
+        </h2>
+        <body><img src="../../img/cache-falling-back-to-network.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="12-race" data-transition="slide">
+        <h2> Race Cache and Network
+        </h2>
+        <body><img src="../../img/cache-and-network-race.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="13-cache-only" data-transition="slide">
+        <h2> Cache only
+        </h2>
+        <body><img src="../../img/cache-only.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="14-network-only" data-transition="slide">
+        <h2> Network only
+        </h2>
+        <body><img src="../../img/network-only.png">
+          <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
+        </body>
+      </section>
+      <section id="15-sw-caching-strategies" data-transition="slide">
+        <h2> Caching strategies
+        </h2>
+        <body>
+          <div class="bgImages">     <img src="../../img/on-push.png"><img src="../../img/on-activate.png"><img src="../../img/on-install-dep.png"><img src="../../img/on-install-not.png"><img src="../../img/ss-cache-then-network.png"><img src="../../img/sw-side-templating.png"><img src="../../img/generic-fallback.png"><img src="../../img/stale-while-revalidate.png"><img src="../../img/on-network-response.png"><img src="../../img/cache-falling-back-to-network.png"><img src="../../img/network-falling-back-to-cache.png"><img src="../../img/network-only.png"><img src="../../img/on-bg-sync.png"><img src="../../img/cache-only.png"><img src="../../img/on-user-interaction.png"><img src="../../img/on-push.png"></div>
+          <div class="overlay fragment">
+            <ul>
+              <li>There are many caching strategies</li>
+              <li class="fragment"><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Jake Archibald`s The offline cookbook</a></li>
+              <li class="fragment"><a class="credits" href="https://github.com/GoogleChrome/sw-precache" target="_blank">SW-Precache</a></li>
+              <li class="fragment"><a class="credits" href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">SW-Toolsbox</a></li>
+            </ul>
+          </div>
+        </body>
+      </section>
+      <section id="16-data" data-transition="slide">
+        <h2> Data storage
+        </h2>
+        <body>
+          <h2>Now lets talk about...</h2>
+          <h2 class="fragment">... data storage</h2>
+        </body>
+      </section>
+      <section id="17-cookies" data-transition="slide">
+        <h2>Cookies
+        </h2>
+        <body>
+          <ul>
+            <li class="fragment">Widely supported</li>
+            <li class="fragment">
+               Synchronous</li>
+            <li class="fragment">
+               Size limit: 4KB</li>
+            <li class="fragment">
+               Strings only</li>
+            <li class="fragment">
+               lives in document object -> inaccessible for service worker</li>
+            <li class="fragment">
+               Cleared very often                </li>
+          </ul>
+        </body>
+      </section>
+      <section id="18-html5-storage" data-transition="slide">
+        <h2>HTML5 Storage   
+        </h2>
+        <body>
+          <h2> </h2>
+          <p>Local/Session storage</p>
+          <ul>
+            <li class="fragment">Widely supported</li>
+            <li class="fragment">
+               Synchronous</li>
+            <li class="fragment">
+               Size limit : 2,5 ~5 MB</li>
+            <li class="fragment">
+               Strings only</li>
+            <li class="fragment">
+               Unstructured data      </li>
+            <li class="fragment">
+               lives in document object -> inaccessible for service worker</li>
+          </ul>
+        </body>
+      </section>
+      <section id="19-websql" data-transition="slide">
+        <h2>WebSQL 
+        </h2>
+        <body>
+          <ul>       
+            <li class="fragment">
+               Asynchronous</li>
+            <li class="fragment">
+               Size limit : 2,5 ~5 MB</li>
+            <li class="fragment">
+               Strings only</li>
+            <li class="fragment">
+               Pre defined schema  </li>
+            <li class="fragment">
+               Quick search</li>
+            <li class="fragment red">Deprecated    </li>
+          </ul>
+        </body>
+      </section>
+      <section id="20-indexeddb" data-transition="slide">
+        <h2>IndexedDB 
+        </h2>
+        <body>
+          <ul>
+            <li class="fragment">
+               Asynchronous (event-based)</li>
+            <li class="fragment">
+               Size limit : 10~20% of avaiable space</li>
+            <li class="fragment">
+               Supported by Service Workers</li>
+            <li class="fragment">
+               Complex Data Objects, Indexes, transactions, cursors            </li>
+            <li class="fragment">
+              "Worst API ever design in a history of computer science"            
+              Jake Archibald at <a href="https://youtu.be/cmGr0RszHc8?t=1924"> Building offline-first PWA - Google I/O 2016</a>
+            </li>
+            <li class="fragment">Promise based wrappers localForage, idb, PouchDB </li>
+          </ul>
+        </body>
+      </section>
+      <section id="21-file-api" data-transition="slide">
+        <h2>File system /File API.
+        </h2>
+        <body>
+          <h2> </h2>
+          <ul>
+            <li>not yet widely supported</li>
+            <li>specification in progress</li>
+            <li> <a href="http://w3c.github.io/FileAPI">File Api specfication</a></li>
+          </ul>
         </body>
       </section>
     </div>

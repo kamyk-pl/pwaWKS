@@ -4,7 +4,7 @@ html
     title Introduction to PWA
     meta(charset='utf-8')
     meta(name='author', content=' Marek Matczak, Paweł Kamiński, Bartek Pietrowski, Tomek Szewców')
-    meta(name='description', content='RWC Traning')
+    meta(name='description', content='WKS 2017 Traning')
     meta(name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui")
    
 
@@ -31,6 +31,30 @@ html
       .slides        
         include ./slides/title.pug
         include ./slides/agenda.pug       
+
+
+
+        include ./slides/caching/lifecycle.pug
+        include ./slides/caching/register.pug
+        include ./slides/caching/installation.pug
+        include ./slides/caching/cache-static.pug
+        include ./slides/caching/cache-static-schema.pug
+        include ./slides/caching/fetch.pug
+        include ./slides/caching/cache-first.pug
+        include ./slides/caching/cache-on-response.pug
+        include ./slides/caching/network-first.pug 
+        include ./slides/caching/cache-first.pug 
+        include ./slides/caching/race.pug       
+        include ./slides/caching/cache-only.pug 
+        include ./slides/caching/network-only.pug 
+        include ./slides/caching/caching-strategies.pug 
+
+        include ./slides/data/data.pug 
+        include ./slides/data/cookies.pug 
+        include ./slides/data/html5-storage.pug 
+        include ./slides/data/websql.pug 
+        include ./slides/data/indexedDB.pug 
+        include ./slides/data/file-api.pug 
          
      
     script(src='reveal.js-3.3.0/lib/js/head.min.js')

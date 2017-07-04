@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "node node_modules/http-server/bin/http-server -p4200",
-    "serve": "node node_modules/reload/bin/reload -b -p 4200"
+    "watch": "node node_modules/reload/bin/reload -b -p 4200"
   },
   "private": true,
   "dependencies": {},
