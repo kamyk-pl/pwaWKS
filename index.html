@@ -199,19 +199,18 @@
           <div class="overlay fragment">
             <ul>
               <li>There are many caching strategies</li>
-              <li class="fragment"><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Jake Archibald`s The offline cookbook</a></li>
-              <li class="fragment"><a class="credits" href="https://github.com/GoogleChrome/sw-precache" target="_blank">SW-Precache</a></li>
-              <li class="fragment"><a class="credits" href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">SW-Toolsbox</a></li>
+              <li class="fragment"><a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Jake Archibald`s The offline cookbook</a></li>
+              <li class="fragment"><a href="https://github.com/GoogleChrome/sw-precache" target="_blank">SW-Precache</a></li>
+              <li class="fragment"><a href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">SW-Toolsbox</a></li>
             </ul>
           </div>
         </body>
       </section>
       <section id="16-data" data-transition="slide">
-        <h2> Data storage
+        <h2> 
         </h2>
         <body>
-          <h2>Now lets talk about...</h2>
-          <h2 class="fragment">... data storage</h2>
+          <h2>Now lets talk about...<br>... data storage</h2>
         </body>
       </section>
       <section id="17-cookies" data-transition="slide">
@@ -298,12 +297,185 @@
         <h2>File system /File API.
         </h2>
         <body>
-          <h2> </h2>
           <ul>
             <li>not yet widely supported</li>
             <li>specification in progress</li>
             <li> <a href="http://w3c.github.io/FileAPI">File Api specfication</a></li>
           </ul>
+        </body>
+      </section>
+      <section id="22-notification" data-transition="slide">
+        <h2>Notification
+        </h2>
+        <body><img src="img/notifications.png">
+        </body>
+      </section>
+      <section id="23-engaging" data-transition="slide">
+        <h2> Engaging  
+        </h2>
+        <body>
+          <ul class="no-bullet">
+            <li class="no-bullet"> <img src="img/engaging.png"></li>
+            <li>Web Push Protocol</li>
+            <li>Service Workers</li>
+          </ul>
+        </body>
+      </section>
+      <section id="24-how-does-it-work-client" data-transition="slide">
+        <h2>How does it work?
+        </h2>
+        <body><img src="img/notification-subscribe.png">
+        </body>
+      </section>
+      <section id="25-how-does-it-work-server" data-transition="slide">
+        <h2>How does it work?
+        </h2>
+        <body><img src="img/notification-server.png">
+        </body>
+      </section>
+      <section id="26-how-does-it-work-browser" data-transition="slide">
+        <h2>How does it work?
+        </h2>
+        <body><img src="img/notification-browser.png">
+        </body>
+      </section>
+      <section id="27-subscribe" data-transition="slide">
+        <h2> Subscribe
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> navigator.serviceWorker.register('sw.js')
+     .then(function(swReg){               
+	        swRegistration.pushManager.subscribe({
+                          userVisibleOnly: true, 
+                          applicationServerKey: PUBLIC_KEY})
+     .then(function(subscription){                   	
+		        console.log('User successfully subscribed');          
+		        fetch('/registerSubscription', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                subscription: SUBSCRIPTION_OBJ,
+             })
+       });          </code></pre>
+        </body>
+      </section>
+      <section id="28-subscribe-obj" data-transition="slide">
+        <h2> Subscribtion object
+        </h2>
+        <body><img src="img/notification-subscription-obj.png">
+        </body>
+      </section>
+      <section id="29-show-notification" data-transition="slide">
+        <h2> Showing notification
+        </h2>
+        <body>
+          <pre><code class="JavaScript"> self.addEventListener('push', function(event) {
+    var  data = event.data.json();
+    event.waitUntil(   
+       self.registration.showNotification(data.title, {
+         body: data.body,
+         icon: data.icon,
+         vibrate: data.vibrate,
+         actions: data.actions,
+         requireInteraction: data.requireInteraction
+      })
+   );
+});</code></pre>
+        </body>
+      </section>
+      <section id="30-notification-schema" data-transition="slide">
+        <h2>Notification schema
+        </h2>
+        <body><img src="img/notification-schema.png">
+        </body>
+      </section>
+      <section id="31-notification-types" data-transition="slide">
+        <h2>Notification types
+        </h2>
+        <body>
+          <ul class="no-bullet">
+            <li class="fragment">       <img src="img/notification-simple.png"></li>
+            <li class="fragment">            <img src="img/notification-with-vibration.png"></li>
+            <li class="fragment">              <img src="img/notification-with-icon.png"></li>
+            <li class="fragment">              <img src="img/notification-with-action.png"></li>
+          </ul>
+        </body>
+      </section>
+      <section id="32-notification-demo" data-transition="slide">
+        <h2> Demo
+        </h2>
+        <body>
+          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="33-notification-demo" data-transition="slide">
+        <h2> Chrome Dev Tools
+        </h2>
+        <body>
+          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="34-notification-demo" data-transition="slide">
+        <h2> Lighthouse
+        </h2>
+        <body>
+          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="35-notification-demo" data-transition="slide">
+        <h2> SW-precache
+        </h2>
+        <body>
+          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="36-notification-demo" data-transition="slide">
+        <h2> SW-toolkit
+        </h2>
+        <body>
+          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="37-notification-demo" data-transition="slide">
+        <h2> and many more tools like
+        </h2>
+        <body>
+          <ul>  
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
+            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
+            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          </ul>
+        </body>
+      </section>
+      <section id="38-end" data-transition="slide">
+        <h2>
+        </h2>
+        <body><img src="img/theend.png">
         </body>
       </section>
     </div>
