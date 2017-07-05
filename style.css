@@ -62,3 +62,11 @@
 .no-bullet {
   list-style-type: none;
 }
+
+.reveal .ml30 {
+  margin-left:30px;
+} 
+
+.reveal .quote{
+    font-size: 40%;
+}
