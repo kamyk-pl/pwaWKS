@@ -1,21 +1,21 @@
 extends ../layout.pug
 
 block vars
-  -var title = 'notification-demo'
+  -var title = 'sw-precache'
 
 block title
         |  SW-precache
-block content           
-      p.credits
-            | Demo was created by  Mietek Suska and Mathias Kegelmann
-      ul   
-         li.fragment
-           a(href="https://pwa-push-demo2.azurewebsites.net/", target="_blank")
-            | Client
-         li.fragment
-           a(href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html", target="_blank")
-            | Server
-         li.fragment
-           a(href="https://github.com/apps-evolve-summit/pwa-push-demo", target="_blank")
-            | Github   
-         
+block content    
+          
+        p
+           a(href="https://github.com/GoogleChrome/sw-precache", target="_blank")
+             | Github
+        ul
+          li.fragment
+            | generates service worker code that will precache specific resources so they work offline.
+          li.fragment
+            | buildtime tool                            
+          li.fragment
+            | makes managing PWA cache easier
+          li.fragment
+            | integrates with sw-toolbox  

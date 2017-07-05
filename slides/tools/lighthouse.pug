@@ -1,21 +1,20 @@
 extends ../layout.pug
 
 block vars
-  -var title = 'notification-demo'
+  -var title = 'Lighthouse'
 
 block title
         |  Lighthouse
-block content           
-      p.credits
-            | Demo was created by  Mietek Suska and Mathias Kegelmann
-      ul   
+block content       
+                
+      p
+            a(href="https://developers.google.com/web/tools/lighthouse/", target="_blank")
+              img(src="img/pwa-lighthouse.png")  
+      ul
+         li.fragment            
+              | Chrome plugin or cmd line tool
          li.fragment
-           a(href="https://pwa-push-demo2.azurewebsites.net/", target="_blank")
-            | Client
+              | Perform static as well as runtime analyze
          li.fragment
-           a(href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html", target="_blank")
-            | Server
-         li.fragment
-           a(href="https://github.com/apps-evolve-summit/pwa-push-demo", target="_blank")
-            | Github   
+              | Check best practices Performance and Accessiblity related to Progressive Web Apps
          

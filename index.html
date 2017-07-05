@@ -201,7 +201,7 @@
               <li>There are many caching strategies</li>
               <li class="fragment"><a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Jake Archibald`s The offline cookbook</a></li>
               <li class="fragment"><a href="https://github.com/GoogleChrome/sw-precache" target="_blank">SW-Precache</a></li>
-              <li class="fragment"><a href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">SW-Toolsbox</a></li>
+              <li class="fragment"><a href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">SW-Toolbox</a></li>
             </ul>
           </div>
         </body>
@@ -393,11 +393,11 @@
         <h2>Notification types
         </h2>
         <body>
-          <ul class="no-bullet">
-            <li class="fragment">       <img src="img/notification-simple.png"></li>
-            <li class="fragment">            <img src="img/notification-with-vibration.png"></li>
-            <li class="fragment">              <img src="img/notification-with-icon.png"></li>
-            <li class="fragment">              <img src="img/notification-with-action.png"></li>
+          <ul>
+            <li class="fragment no-bullet">       <img src="img/notification-simple.png"></li>
+            <li class="fragment no-bullet">            <img src="img/notification-with-vibration.png"></li>
+            <li class="fragment no-bullet">              <img src="img/notification-with-icon.png"></li>
+            <li class="fragment no-bullet">              <img src="img/notification-with-action.png"></li>
           </ul>
         </body>
       </section>
@@ -413,66 +413,155 @@
           </ul>
         </body>
       </section>
-      <section id="33-notification-demo" data-transition="slide">
+      <section id="33-pwa-tools" data-transition="slide">
+        <h2> 
+        </h2>
+        <body>
+          <h2>PWA tools         </h2>
+        </body>
+      </section>
+      <section id="34-chrome-dev-tools" data-transition="slide">
         <h2> Chrome Dev Tools
         </h2>
         <body>
-          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
-          <ul>  
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
-            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
-          </ul>
+          <h3>
+             Application tab</h3>
         </body>
       </section>
-      <section id="34-notification-demo" data-transition="slide">
+      <section id="35-chrome-dev-tools-manifest" data-transition="slide">
+        <h2> Chrome Dev Tools
+        </h2>
+        <body><img src="img/dt-manifest.png">
+        </body>
+      </section>
+      <section id="36-chrome-dev-tools-service-worker" data-transition="slide">
+        <h2> Chrome Dev Tools
+        </h2>
+        <body><img src="img/dt-service-worker.png">
+        </body>
+      </section>
+      <section id="37-chrome-dev-tools-storage" data-transition="slide">
+        <h2> Chrome Dev Tools
+        </h2>
+        <body><img src="img/dt-storage.png">
+        </body>
+      </section>
+      <section id="38-chrome-dev-tools-cache" data-transition="slide">
+        <h2> Chrome Dev Tools
+        </h2>
+        <body><img src="img/dt-cache.png">
+        </body>
+      </section>
+      <section id="39-Lighthouse" data-transition="slide">
         <h2> Lighthouse
         </h2>
         <body>
-          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
-          <ul>  
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
-            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          <p><a href="https://developers.google.com/web/tools/lighthouse/" target="_blank"><img src="img/pwa-lighthouse.png"></a></p>
+          <ul>
+            <li class="fragment">
+                         Chrome plugin or cmd line tool</li>
+            <li class="fragment">Perform static as well as runtime analyze</li>
+            <li class="fragment">Check best practices Performance and Accessiblity related to Progressive Web Apps</li>
           </ul>
         </body>
       </section>
-      <section id="35-notification-demo" data-transition="slide">
+      <section id="40-Lighthouse-raport-pwa" data-transition="slide">
+        <h2> Lighthouse
+        </h2>
+        <body><img src="img/lh-pwa.png">
+        </body>
+      </section>
+      <section id="41-Lighthouse-raport-performance" data-transition="slide">
+        <h2> Lighthouse
+        </h2>
+        <body><img src="img/lh-per.png">
+        </body>
+      </section>
+      <section id="42-Lighthouse-raport-accessibility" data-transition="slide">
+        <h2> Lighthouse
+        </h2>
+        <body><img src="img/lh-access.png">
+        </body>
+      </section>
+      <section id="43-sw-toolbox" data-transition="slide">
+        <h2> SW-toolbox
+        </h2>
+        <body>
+          <p><a href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">Github</a></p>
+          <ul> 
+            <li class="fragment">A collection of service worker tools for offlining runtime requests</li>
+            <li class="fragment">runtime tool                            </li>
+            <li class="fragment">Provides predefined cache strategies</li>
+            <li class="fragment">Allows adding new cache strategies</li>
+          </ul>
+        </body>
+      </section>
+      <section id="44-sw-toolbox-code" data-transition="slide">
+        <h2> SW-toolbox
+        </h2>
+        <body>
+          <pre><code class="JavaScript">                              
+toolbox.router.get('/news', toolbox.networkFirst, {
+    cache: {
+        name: 'news'
+    }
+});               </code></pre>
+          <pre><code class="JavaScript"> toolbox.router.get('/(google*)', global.toolbox.cacheFirst, {
+    cache: {
+      name: 'googleapis',
+      maxEntries: 10,
+      maxAgeSeconds: 86400
+    },
+    origin: /\.googleapis\.com$/
+  });      </code></pre>
+        </body>
+      </section>
+      <section id="45-sw-precache" data-transition="slide">
         <h2> SW-precache
         </h2>
         <body>
-          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
-          <ul>  
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
-            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+          <p><a href="https://github.com/GoogleChrome/sw-precache" target="_blank">Github</a></p>
+          <ul>
+            <li class="fragment">generates service worker code that will precache specific resources so they work offline.</li>
+            <li class="fragment">buildtime tool                            </li>
+            <li class="fragment">makes managing PWA cache easier</li>
+            <li class="fragment">integrates with sw-toolbox  </li>
           </ul>
         </body>
       </section>
-      <section id="36-notification-demo" data-transition="slide">
-        <h2> SW-toolkit
+      <section id="46-sw-precache-code" data-transition="slide">
+        <h2> SW-precache
         </h2>
         <body>
-          <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
-          <ul>  
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
-            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
-          </ul>
+          <pre><code class="JavaScript"> workboxSW.precache([
+  {
+    "url": "/rev/js/app-dbf8692027.js",
+    "revision": "dbf8692027bc45c0716e99ce79b5c37f"
+  },
+  ...
+  {
+    "url": "/images/icon.png",
+    "revision": "a10e1fffc6618c914c42a754f3e713af"
+  },
+  {
+    "url": "/app-shell",
+    "revision": "2b927fa96213157612381879d94baf6a"
+  }
+]);</code></pre>
         </body>
       </section>
-      <section id="37-notification-demo" data-transition="slide">
+      <section id="47-more-tools" data-transition="slide">
         <h2> and many more tools like
         </h2>
         <body>
           <ul>  
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/" target="_blank">Client</a></li>
-            <li class="fragment"><a href="https://pwa-push-demo2.azurewebsites.net/web_app/index.html" target="_blank">Server</a></li>
-            <li class="fragment"><a href="https://github.com/apps-evolve-summit/pwa-push-demo" target="_blank">Github   </a></li>
+            <li class="fragment"><a href="https://app-manifest.firebaseapp.com/" target="_blank">Manifest generator </a></li>
+            <li class="fragment"><a href="https://www.npmjs.com/package/sw-offline-google-analytics" target="_blank">Offline Google Analitics</a></li>
+            <li class="fragment"><a href="https://workboxjs.org/#get-started" target="_blank">Workboxjs   </a></li>
           </ul>
         </body>
       </section>
-      <section id="38-end" data-transition="slide">
+      <section id="48-end" data-transition="slide">
         <h2>
         </h2>
         <body><img src="img/theend.png">
