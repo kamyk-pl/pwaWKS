@@ -238,25 +238,37 @@
           </ul>
         </body>
       </section>
-      <section id="17-can-I-use-sw" data-transition="slide">
+      <section id="17-service-workers" data-transition="slide">
+        <h2> Service Workers</h2>
+        <body>
+          <ul>
+            <li>Give developers the moving parts to solve their problems</li>
+            <li>Alow to create own caching patterns</li>
+            <li>Can only be used over HTTPS (excluding localhost)  </li>
+            <li>Hijack connections</li>
+            <li>Fabricate, and filter responses</li>
+          </ul>
+        </body>
+      </section>
+      <section id="18-can-I-use-sw" data-transition="slide">
         <h2>Can I use Service Workers</h2>
         <body><img src="img/caniuse.jpg">
           <p class="quote"><a href="http://caniuse.com/#search=service%20Worker"> Can I use</a></p>
         </body>
       </section>
-      <section id="18-is-sw-ready" data-transition="slide">
+      <section id="19-is-sw-ready" data-transition="slide">
         <h2>Is Service Worker ready</h2>
         <body><img src="img/is-sw-ready.png">
           <p class="quote"><a href="https://jakearchibald.github.io/isserviceworkerready/"> Is Service Worker ready</a></p>
         </body>
       </section>
-      <section id="19-service-workers-life-cycle" data-transition="slide">
+      <section id="20-service-workers-life-cycle" data-transition="slide">
         <h2>Service Worker Life Cycle </h2>
         <body><img src="img/sw-lifecycle.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Image from Google Web Fundamentals</a></p>
         </body>
       </section>
-      <section id="20-service-workers-registeration" data-transition="slide">
+      <section id="21-service-workers-registeration" data-transition="slide">
         <h2>Service Worker Registeration</h2>
         <body>
           <pre><code class="JavaScript"> if ('serviceWorker' in navigator) {
@@ -272,7 +284,7 @@
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
         </body>
       </section>
-      <section id="21-service-workers-installation" data-transition="slide">
+      <section id="22-service-workers-installation" data-transition="slide">
         <h2>Service Worker Installation</h2>
         <body>
           <pre><code class="JavaScript"> self.addEventListener('install', function(event) {
@@ -281,7 +293,7 @@
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
         </body>
       </section>
-      <section id="22-service-workers-caching-static-files" data-transition="slide">
+      <section id="23-service-workers-caching-static-files" data-transition="slide">
         <h2> Caching Static Files</h2>
         <body>
           <pre><code class="JavaScript"> self.addEventListener('install', function(event) {
@@ -300,13 +312,13 @@
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
         </body>
       </section>
-      <section id="23-service-workers-caching-static-files-schema" data-transition="slide">
+      <section id="24-service-workers-caching-static-files-schema" data-transition="slide">
         <h2> Caching Static Files</h2>
         <body><img src="img/on-install-dep.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="24-service-workers-fetching-static-files" data-transition="slide">
+      <section id="25-service-workers-fetching-static-files" data-transition="slide">
         <h2> Fetching Static Files</h2>
         <body>
           <pre><code class="JavaScript"> self.addEventListener('fetch', function(event) {
@@ -322,13 +334,13 @@
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Code based on Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="25-cache-first" data-transition="slide">
+      <section id="26-cache-first" data-transition="slide">
         <h2> Cache First</h2>
         <body><img src="img/cache-falling-back-to-network.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="26-service-workers-caching-on-network-response" data-transition="slide">
+      <section id="27-service-workers-caching-on-network-response" data-transition="slide">
         <h2> Caching On Network Response</h2>
         <body>
           <pre><code class="JavaScript"> self.addEventListener('fetch', function(event) {
@@ -346,37 +358,37 @@
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/getting-started/primers/service-workers" target="_blank">Code from Google Web Fundamentals  </a></p>
         </body>
       </section>
-      <section id="27-network-first" data-transition="slide">
+      <section id="28-network-first" data-transition="slide">
         <h2> Network first</h2>
         <body><img src="img/network-falling-back-to-cache.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="28-cache-first" data-transition="slide">
+      <section id="29-cache-first" data-transition="slide">
         <h2> Cache First</h2>
         <body><img src="img/cache-falling-back-to-network.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="29-race" data-transition="slide">
+      <section id="30-race" data-transition="slide">
         <h2> Race Cache and Network</h2>
         <body><img src="img/cache-and-network-race.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="30-cache-only" data-transition="slide">
+      <section id="31-cache-only" data-transition="slide">
         <h2> Cache only</h2>
         <body><img src="img/cache-only.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="31-network-only" data-transition="slide">
+      <section id="32-network-only" data-transition="slide">
         <h2> Network only</h2>
         <body><img src="img/network-only.png">
           <p><a class="credits" href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/" target="_blank">Image from Jake Archibald`s offline cookbook</a></p>
         </body>
       </section>
-      <section id="32-sw-caching-strategies" data-transition="slide">
+      <section id="33-sw-caching-strategies" data-transition="slide">
         <h2> Caching strategies</h2>
         <body>
           <div class="bgImages">     <img src="img/on-push.png"><img src="img/on-activate.png"><img src="img/on-install-dep.png"><img src="img/on-install-not.png"><img src="img/ss-cache-then-network.png"><img src="img/sw-side-templating.png"><img src="img/generic-fallback.png"><img src="img/stale-while-revalidate.png"><img src="img/on-network-response.png"><img src="img/cache-falling-back-to-network.png"><img src="img/network-falling-back-to-cache.png"><img src="img/network-only.png"><img src="img/on-bg-sync.png"><img src="img/cache-only.png"><img src="img/on-user-interaction.png"><img src="img/on-push.png"></div>
@@ -390,13 +402,13 @@
           </div>
         </body>
       </section>
-      <section id="33-data" data-transition="slide">
+      <section id="34-data" data-transition="slide">
         <h2> </h2>
         <body>
           <h2>Now lets talk about...<br>... data storage</h2>
         </body>
       </section>
-      <section id="34-cookies" data-transition="slide">
+      <section id="35-cookies" data-transition="slide">
         <h2>Cookies</h2>
         <body>
           <ul>
@@ -414,7 +426,7 @@
           </ul>
         </body>
       </section>
-      <section id="35-html5-storage" data-transition="slide">
+      <section id="36-html5-storage" data-transition="slide">
         <h2>HTML5 Storage   </h2>
         <body>
           <h2> </h2>
@@ -434,7 +446,7 @@
           </ul>
         </body>
       </section>
-      <section id="36-websql" data-transition="slide">
+      <section id="37-websql" data-transition="slide">
         <h2>WebSQL </h2>
         <body>
           <ul>       
@@ -452,7 +464,7 @@
           </ul>
         </body>
       </section>
-      <section id="37-indexeddb" data-transition="slide">
+      <section id="38-indexeddb" data-transition="slide">
         <h2>IndexedDB </h2>
         <body>
           <ul>
@@ -472,7 +484,7 @@
           </ul>
         </body>
       </section>
-      <section id="38-file-api" data-transition="slide">
+      <section id="39-file-api" data-transition="slide">
         <h2>File system /File API.</h2>
         <body>
           <ul>
@@ -482,11 +494,11 @@
           </ul>
         </body>
       </section>
-      <section id="39-notification" data-transition="slide">
+      <section id="40-notification" data-transition="slide">
         <h2>Notification</h2>
         <body><img src="img/notifications.png"></body>
       </section>
-      <section id="40-engaging" data-transition="slide">
+      <section id="41-engaging" data-transition="slide">
         <h2> Engaging  </h2>
         <body>
           <ul class="no-bullet">
@@ -496,19 +508,19 @@
           </ul>
         </body>
       </section>
-      <section id="41-how-does-it-work-client" data-transition="slide">
+      <section id="42-how-does-it-work-client" data-transition="slide">
         <h2>How does it work?</h2>
         <body><img src="img/notification-subscribe.png"></body>
       </section>
-      <section id="42-how-does-it-work-server" data-transition="slide">
+      <section id="43-how-does-it-work-server" data-transition="slide">
         <h2>How does it work?</h2>
         <body><img src="img/notification-server.png"></body>
       </section>
-      <section id="43-how-does-it-work-browser" data-transition="slide">
+      <section id="44-how-does-it-work-browser" data-transition="slide">
         <h2>How does it work?</h2>
         <body><img src="img/notification-browser.png"></body>
       </section>
-      <section id="44-subscribe" data-transition="slide">
+      <section id="45-subscribe" data-transition="slide">
         <h2> Subscribe</h2>
         <body>
           <pre><code class="JavaScript"> navigator.serviceWorker.register('sw.js')
@@ -527,11 +539,11 @@
        });          </code></pre>
         </body>
       </section>
-      <section id="45-subscribe-obj" data-transition="slide">
+      <section id="46-subscribe-obj" data-transition="slide">
         <h2> Subscribtion object</h2>
         <body><img src="img/notification-subscription-obj.png"></body>
       </section>
-      <section id="46-show-notification" data-transition="slide">
+      <section id="47-show-notification" data-transition="slide">
         <h2> Showing notification</h2>
         <body>
           <pre><code class="JavaScript"> self.addEventListener('push', function(event) {
@@ -548,11 +560,11 @@
 });</code></pre>
         </body>
       </section>
-      <section id="47-notification-schema" data-transition="slide">
+      <section id="48-notification-schema" data-transition="slide">
         <h2>Notification schema</h2>
         <body><img src="img/notification-schema.png"></body>
       </section>
-      <section id="48-notification-types" data-transition="slide">
+      <section id="49-notification-types" data-transition="slide">
         <h2>Notification types</h2>
         <body>
           <ul>
@@ -563,7 +575,7 @@
           </ul>
         </body>
       </section>
-      <section id="49-notification-demo" data-transition="slide">
+      <section id="50-notification-demo" data-transition="slide">
         <h2> Demo</h2>
         <body>
           <p class="credits">Demo was created by  Mietek Suska and Mathias Kegelmann</p>
@@ -574,36 +586,36 @@
           </ul>
         </body>
       </section>
-      <section id="50-pwa-tools" data-transition="slide">
+      <section id="51-pwa-tools" data-transition="slide">
         <h2> </h2>
         <body>
           <h2>PWA tools         </h2>
         </body>
       </section>
-      <section id="51-chrome-dev-tools" data-transition="slide">
+      <section id="52-chrome-dev-tools" data-transition="slide">
         <h2> Chrome Dev Tools</h2>
         <body>
           <h3>
              Application tab</h3>
         </body>
       </section>
-      <section id="52-chrome-dev-tools-manifest" data-transition="slide">
+      <section id="53-chrome-dev-tools-manifest" data-transition="slide">
         <h2> Chrome Dev Tools</h2>
         <body><img src="img/dt-manifest.png"></body>
       </section>
-      <section id="53-chrome-dev-tools-service-worker" data-transition="slide">
+      <section id="54-chrome-dev-tools-service-worker" data-transition="slide">
         <h2> Chrome Dev Tools</h2>
         <body><img src="img/dt-service-worker.png"></body>
       </section>
-      <section id="54-chrome-dev-tools-storage" data-transition="slide">
+      <section id="55-chrome-dev-tools-storage" data-transition="slide">
         <h2> Chrome Dev Tools</h2>
         <body><img src="img/dt-storage.png"></body>
       </section>
-      <section id="55-chrome-dev-tools-cache" data-transition="slide">
+      <section id="56-chrome-dev-tools-cache" data-transition="slide">
         <h2> Chrome Dev Tools</h2>
         <body><img src="img/dt-cache.png"></body>
       </section>
-      <section id="56-Lighthouse" data-transition="slide">
+      <section id="57-Lighthouse" data-transition="slide">
         <h2> Lighthouse</h2>
         <body>
           <p><a href="https://developers.google.com/web/tools/lighthouse/" target="_blank"><img src="img/pwa-lighthouse.png"></a></p>
@@ -615,19 +627,19 @@
           </ul>
         </body>
       </section>
-      <section id="57-Lighthouse-raport-pwa" data-transition="slide">
+      <section id="58-Lighthouse-raport-pwa" data-transition="slide">
         <h2> Lighthouse</h2>
         <body><img src="img/lh-pwa.png"></body>
       </section>
-      <section id="58-Lighthouse-raport-performance" data-transition="slide">
+      <section id="59-Lighthouse-raport-performance" data-transition="slide">
         <h2> Lighthouse</h2>
         <body><img src="img/lh-per.png"></body>
       </section>
-      <section id="59-Lighthouse-raport-accessibility" data-transition="slide">
+      <section id="60-Lighthouse-raport-accessibility" data-transition="slide">
         <h2> Lighthouse</h2>
         <body><img src="img/lh-access.png"></body>
       </section>
-      <section id="60-sw-toolbox" data-transition="slide">
+      <section id="61-sw-toolbox" data-transition="slide">
         <h2> SW-toolbox</h2>
         <body>
           <p><a href="https://github.com/GoogleChrome/sw-toolbox" target="_blank">Github</a></p>
@@ -639,7 +651,7 @@
           </ul>
         </body>
       </section>
-      <section id="61-sw-toolbox-code" data-transition="slide">
+      <section id="62-sw-toolbox-code" data-transition="slide">
         <h2> SW-toolbox</h2>
         <body>
           <pre><code class="JavaScript">                              
@@ -658,7 +670,7 @@ toolbox.router.get('/news', toolbox.networkFirst, {
   });      </code></pre>
         </body>
       </section>
-      <section id="62-sw-precache" data-transition="slide">
+      <section id="63-sw-precache" data-transition="slide">
         <h2> SW-precache</h2>
         <body>
           <p><a href="https://github.com/GoogleChrome/sw-precache" target="_blank">Github</a></p>
@@ -670,7 +682,7 @@ toolbox.router.get('/news', toolbox.networkFirst, {
           </ul>
         </body>
       </section>
-      <section id="63-sw-precache-code" data-transition="slide">
+      <section id="64-sw-precache-code" data-transition="slide">
         <h2> SW-precache</h2>
         <body>
           <pre><code class="JavaScript"> workboxSW.precache([
@@ -690,7 +702,7 @@ toolbox.router.get('/news', toolbox.networkFirst, {
 ]);</code></pre>
         </body>
       </section>
-      <section id="64-more-tools" data-transition="slide">
+      <section id="65-more-tools" data-transition="slide">
         <h2> and many more tools like</h2>
         <body>
           <ul>  
@@ -700,7 +712,7 @@ toolbox.router.get('/news', toolbox.networkFirst, {
           </ul>
         </body>
       </section>
-      <section id="65-end" data-transition="slide">
+      <section id="66-end" data-transition="slide">
         <h2></h2>
         <body><img src="img/theend.png"></body>
       </section>
